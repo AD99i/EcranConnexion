@@ -12,6 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcranConnexion">
         <activity
+            android:name=".ForgotPassword"
+            android:exported="false"
+            android:label="@string/title_activity_forgot_password"
+            android:theme="@style/Theme.EcranConnexion" />
+        <activity
             android:name=".Inscription"
             android:exported="false"
             android:label="@string/title_activity_inscription"
