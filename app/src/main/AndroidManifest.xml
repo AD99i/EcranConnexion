@@ -12,6 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EcranConnexion">
         <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/title_activity_main"
+            android:theme="@style/Theme.EcranConnexion">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+    </activity>
+        <activity
+            android:name=".ArticleList"
+            android:exported="false"
+            android:label="@string/title_activity_article_list"
+            android:theme="@style/Theme.EcranConnexion" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="false"
             android:label="@string/title_activity_forgot_password"
@@ -25,7 +41,8 @@
             android:name=".Connexion"
             android:exported="false"
             android:label="@string/title_activity_connexion"
-            android:theme="@style/Theme.EcranConnexion" />
+            android:theme="@style/Theme.EcranConnexion"/>
+
     </application>
 
 </manifest>

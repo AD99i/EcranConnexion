@@ -1,7 +1,6 @@
 package com.example.ecranconnexion
 
-
-class Article {
+ class Article {
     var title: String? = null
     var description: String? = null
     var author: String? = null
