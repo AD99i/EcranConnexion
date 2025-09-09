@@ -23,6 +23,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.ecranconnexion.ui.theme.BackgroundImage
 import com.example.ecranconnexion.ui.theme.EcranConnexionTheme
+import com.example.ecranconnexion.ui.theme.EniButton
+import com.example.ecranconnexion.ui.theme.TemplatePage
+import com.example.ecranconnexion.ui.theme.WrapPadding
 
 class ForgotPassword : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,10 +39,7 @@ class ForgotPassword : ComponentActivity() {
 
 @Composable
 fun PasswordPage() {
-    EcranConnexionTheme {
-        Scaffold (modifier = Modifier.fillMaxSize()){innerPadding ->
-            Box(modifier = Modifier.padding(innerPadding)){
-                BackgroundImage()
+    TemplatePage(backgroundId = R.drawable.mobile_bg) {
                 Column (modifier = Modifier.fillMaxSize().padding(60.dp).padding(top = 150.dp)){
                     Text("Reset Password", fontSize = 30.sp,color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                     TextField(onValueChange = {}, value = "", label = { Text("Email") }, modifier = Modifier.padding(top = 20.dp),
@@ -53,18 +53,13 @@ fun PasswordPage() {
                             focusedLabelColor = Color.White,
                             unfocusedLabelColor = Color.White
                         ))
-
-                    ElevatedButton(onClick = {}, modifier = Modifier.fillMaxWidth().padding(top = 20.dp)) {
-                        Text("Reset Password", modifier = Modifier.padding(5.dp))
-                    }
-
+                    WrapPadding { EniButton (label = "Send Reset Link") }
                     Text("Next time, please don't forget your password dude !", modifier = Modifier.padding(top = 100.dp), color = Color.White)
                 }
             }
 
         }
-    }
-}
+
 
 @Preview(showBackground = true)
 @Composable
