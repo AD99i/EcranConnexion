@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.AsyncImage
+import com.example.ecranconnexion.ui.theme.BackgroundImage
 import com.example.ecranconnexion.ui.theme.EcranConnexionTheme
 
 class ArticleList : ComponentActivity() {

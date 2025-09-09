@@ -5,25 +5,24 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.ecranconnexion.ui.theme.EcranConnexionTheme
+import com.example.ecranconnexion.ui.theme.EniButton
+import com.example.ecranconnexion.ui.theme.EniTextField
+import com.example.ecranconnexion.ui.theme.TemplatePage
+import com.example.ecranconnexion.ui.theme.WrapPadding
 
 class Connexion : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,58 +35,30 @@ class Connexion : ComponentActivity() {
     }
 }
 
-@Composable
-fun BackgroundImage() {
-    Image(
-        painter = painterResource(id = R.drawable.mobile_bg),
-        contentDescription = "Background",
-        modifier = Modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop
-    )
-}
+
 
 @Composable
 fun MainPage() {
-    EcranConnexionTheme {
-        Scaffold (modifier = Modifier.fillMaxSize()){innerPadding ->
-            Box(modifier = Modifier.padding(innerPadding)){
-                BackgroundImage()
+    TemplatePage(backgroundId = R.drawable.mobile_bg) {
                 Column (modifier = Modifier.fillMaxSize().padding(60.dp).padding(top = 150.dp)){
+                    Image(
+                        painter = painterResource(id = R.drawable.logo_eni_round),
+                        contentDescription = "Logo Eni",
+                    )
+                    Spacer(modifier = Modifier.height(140.dp))
                     Text("Welcome on this application", color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
                     Text("Log in to continue", color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                    TextField(onValueChange = {}, value = "", label = { Text("Email") }, modifier = Modifier.padding(top = 20.dp),
-                        colors = TextFieldDefaults.colors(
-                            focusedTextColor = Color.White,
-                            unfocusedTextColor = Color.White,
-                            cursorColor = Color.White,
-                            focusedContainerColor = Color.Transparent,
-                            unfocusedContainerColor = Color.Transparent,
-                            disabledContainerColor = Color.Transparent,
-                            focusedLabelColor = Color.White,
-                            unfocusedLabelColor = Color.White
-                        ))
-                    TextField(onValueChange = {},value ="", label = { Text("Mot de passe") }, modifier = Modifier.padding(top = 20.dp),
-                        colors = TextFieldDefaults.colors(
-                            focusedTextColor = Color.White,
-                            unfocusedTextColor = Color.White,
-                            cursorColor = Color.White,
-                            focusedContainerColor = Color.Transparent,
-                            unfocusedContainerColor = Color.Transparent,
-                            disabledContainerColor = Color.Transparent,
-                            focusedLabelColor = Color.White,
-                            unfocusedLabelColor = Color.White
-                        ))
-                    ElevatedButton(onClick = {}, modifier = Modifier.fillMaxWidth().padding(top = 20.dp)) {
-                        Text("Sign in", modifier = Modifier.padding(5.dp))
-                    }
+                    WrapPadding { EniTextField("Email") }
+                    WrapPadding { EniTextField("Password") }
+                    WrapPadding { EniButton(label = "Log In") }
                     Text("Forgot Password ?", modifier = Modifier.padding(top = 20.dp).fillMaxWidth(), color = Color.White, textAlign = TextAlign.Center)
                     Text("No acount ? Register here !", modifier = Modifier.padding(top = 20.dp).fillMaxWidth(), color = Color.White, textAlign = TextAlign.Center)
                 }
             }
 
         }
-    }
-}
+
+
 
 @Preview(showBackground = true)
 @Composable
