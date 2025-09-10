@@ -6,13 +6,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -23,6 +26,7 @@ import androidx.compose.ui.unit.sp
 import com.example.ecranconnexion.ui.theme.CustomButton
 import com.example.ecranconnexion.ui.theme.CustomTextField
 import com.example.ecranconnexion.ui.theme.TemplatePage
+import com.example.ecranconnexion.ui.theme.TitlePage
 import com.example.ecranconnexion.ui.theme.WrapPadding
 
 class Inscription : ComponentActivity() {
@@ -42,8 +46,16 @@ fun RegistrationPage() {
     val context = LocalContext.current
 
     TemplatePage (backgroundId = R.drawable.mobile_bg){
-                Column (modifier = Modifier.fillMaxSize().padding(60.dp).padding(top = 50.dp)){
-                    Text("Sign in", fontSize = 40.sp,color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(40.dp)
+                        .padding(top = 10.dp)
+                ){
+                    Spacer(modifier = Modifier.height(140.dp))
+                    TitlePage("Sign Up")
+                    Spacer(modifier = Modifier.height(40.dp))
                     WrapPadding { CustomTextField("Pseudo") }
                     WrapPadding { CustomTextField("Email") }
                     WrapPadding { CustomTextField("Password") }

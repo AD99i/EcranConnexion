@@ -6,13 +6,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -23,7 +26,9 @@ import androidx.compose.ui.unit.sp
 import com.example.ecranconnexion.ui.theme.EcranConnexionTheme
 import com.example.ecranconnexion.ui.theme.CustomButton
 import com.example.ecranconnexion.ui.theme.CustomTextField
+import com.example.ecranconnexion.ui.theme.EniLogo
 import com.example.ecranconnexion.ui.theme.TemplatePage
+import com.example.ecranconnexion.ui.theme.TitlePage
 import com.example.ecranconnexion.ui.theme.WrapPadding
 
 class ForgotPassword : ComponentActivity() {
@@ -43,8 +48,16 @@ fun PasswordPage() {
     val context = LocalContext.current
 
     TemplatePage(backgroundId = R.drawable.mobile_bg) {
-                Column (modifier = Modifier.fillMaxSize().padding(60.dp).padding(top = 150.dp)){
-                    Text("Reset Password", fontSize = 30.sp,color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(40.dp)
+                        .padding(top = 10.dp)){
+                    EniLogo()
+                    Spacer(modifier = Modifier.height(180.dp))
+                    TitlePage("Password Recovery")
+                    Spacer(modifier = Modifier.height(60.dp))
                     WrapPadding { CustomTextField("Email") }
                     WrapPadding { CustomButton (label = "Send Reset Link", onClick = {
                         //Le code pour changer de page
@@ -52,10 +65,8 @@ fun PasswordPage() {
                         context.startActivity(intent)
                     })
                     }
-                    Text("Next time, please don't forget your password dude !", modifier = Modifier.padding(top = 100.dp), color = Color.White)
                 }
             }
-
         }
 
 

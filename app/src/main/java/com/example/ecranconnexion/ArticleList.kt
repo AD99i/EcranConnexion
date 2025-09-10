@@ -17,6 +17,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -44,7 +45,7 @@ class ArticleList : ComponentActivity() {
 
 @Composable
 fun ArticlesPage() {
-    val articles = mutableListOf(
+    var articles = mutableListOf(
         Article("Article 1", "Description 1", "Auteur 1", "image1.jpg"),
         Article("Article 2", "Description 2", "Auteur 2", "image2.jpg"),
         Article("Article 3", "Description 3", "Auteur 3", "image3.jpg"),
@@ -52,19 +53,23 @@ fun ArticlesPage() {
     )
 
     TemplatePage(backgroundId = R.drawable.mobile_bg) {
-                Column (modifier = Modifier.fillMaxSize().padding(60.dp).padding(top = 100.dp)){
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(60.dp)
+                        .padding(top = 100.dp)
+                ){
                     Spacer(modifier = Modifier.height(140.dp))
                     TitlePage("Articles")
                     Spacer(modifier = Modifier.height(40.dp))
                     LazyColumn {
                         items(articles) { article ->
-                            ArticleCard(article)
+                            WrapPadding {  ArticleCard(article)  }
                         }
                     }
-
                 }
             }
-
         }
 
 

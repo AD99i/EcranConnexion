@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
@@ -23,7 +24,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.ecranconnexion.ui.theme.CustomButton
 import com.example.ecranconnexion.ui.theme.CustomTextField
+import com.example.ecranconnexion.ui.theme.EniLogo
 import com.example.ecranconnexion.ui.theme.TemplatePage
+import com.example.ecranconnexion.ui.theme.TitlePage
 import com.example.ecranconnexion.ui.theme.WrapPadding
 
 class Connexion : ComponentActivity() {
@@ -46,14 +49,16 @@ fun MainPage() {
     val context = LocalContext.current
 
     TemplatePage(backgroundId = R.drawable.mobile_bg) {
-                Column (modifier = Modifier.fillMaxSize().padding(60.dp).padding(top = 150.dp)){
-                    Image(
-                        painter = painterResource(id = R.drawable.logo_eni_round),
-                        contentDescription = "Logo Eni",
-                    )
-                    Spacer(modifier = Modifier.height(140.dp))
-                    Text("Welcome on this application", color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
-                    Text("Log in to continue", color = Color.White, textAlign = TextAlign.Center, modifier = Modifier.fillMaxWidth())
+                Column (
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier
+                    .fillMaxSize()
+                    .padding(60.dp)
+                    .padding(top = 150.dp)){
+                    EniLogo()
+                    Spacer(modifier = Modifier.height(50.dp))
+                    TitlePage("Login")
+                    Spacer(modifier = Modifier.height(50.dp))
                     WrapPadding { CustomTextField("Email") }
                     WrapPadding { CustomTextField("Password") }
                     WrapPadding { CustomButton(label = "Log In", onClick = {

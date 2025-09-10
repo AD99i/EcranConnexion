@@ -162,3 +162,11 @@ fun TitlePage(title: String = "Titre") {
         )
     )
 }
+
+@Composable
+fun EniLogo() {
+    Image(
+        painter = painterResource(R.drawable.logo_eni_round),
+        contentDescription = "logo"
+    )
+}
