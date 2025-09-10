@@ -40,7 +40,7 @@ import com.example.ecranconnexion.R
 
 
 @Composable
-fun TemplatePage(@DrawableRes backgroundId: Int= R.drawable.mobile_bg,content: @Composable () -> Unit) {
+fun TemplatePage(@DrawableRes backgroundId: Int= R.drawable.mobile_bg_01, content: @Composable () -> Unit) {
     EcranConnexionTheme {
         Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
             Box(modifier = Modifier.padding(innerPadding)) {
@@ -85,7 +85,7 @@ fun CustomButton(label: String = "Invalid", onClick: () -> Unit =
 }
 
 @Composable
-fun BackgroundImage(@DrawableRes backgroundId: Int = R.drawable.mobile_bg) {
+fun BackgroundImage(@DrawableRes backgroundId: Int = R.drawable.mobile_bg_01) {
     Image(
         painter = painterResource(backgroundId),
         contentDescription = "Background",

@@ -8,22 +8,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.ecranconnexion.ui.theme.EcranConnexionTheme
 import com.example.ecranconnexion.ui.theme.CustomButton
 import com.example.ecranconnexion.ui.theme.CustomTextField
 import com.example.ecranconnexion.ui.theme.EniLogo
@@ -47,7 +39,7 @@ fun PasswordPage() {
     //recuperer le contexte actuel de l'appli (important pour changer de page)
     val context = LocalContext.current
 
-    TemplatePage(backgroundId = R.drawable.mobile_bg) {
+    TemplatePage(backgroundId = R.drawable.mobile_bg_01) {
                 Column (
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
