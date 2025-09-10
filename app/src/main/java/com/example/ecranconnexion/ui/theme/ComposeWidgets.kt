@@ -60,7 +60,7 @@ fun WrapPadding(content: @Composable () -> Unit){
 
 
 @Composable
-fun EniButton(label: String = "Invalid", onClick: () -> Unit =
+fun CustomButton(label: String = "Invalid", onClick: () -> Unit =
     {}) {
     Button(
         onClick = onClick,
@@ -95,7 +95,7 @@ fun BackgroundImage(@DrawableRes backgroundId: Int = R.drawable.mobile_bg) {
 }
 
 @Composable
-fun EniTextField(hintText: String = "Veuillez saisir..."){
+fun CustomTextField(hintText: String = "Veuillez saisir..."){
     TextField(
         value = "", onValueChange = {},
         modifier = Modifier.fillMaxWidth(),
