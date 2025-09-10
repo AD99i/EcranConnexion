@@ -23,7 +23,7 @@
         </intent-filter>
     </activity>
         <activity
-            android:name=".ArticleList"
+            android:name=".article.ArticleList"
             android:exported="false"
             android:label="@string/title_activity_article_list"
             android:theme="@style/Theme.EcranConnexion" />
