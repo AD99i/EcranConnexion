@@ -33,6 +33,7 @@ class ArticleList : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        viewModel = ArticleViewModel()
         setContent {
             ArticlesPage(viewModel)
         }

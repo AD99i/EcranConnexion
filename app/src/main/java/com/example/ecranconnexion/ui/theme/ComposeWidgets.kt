@@ -129,7 +129,7 @@ fun ArticleCard(article: Article) {
                 )
                 Column(modifier = Modifier.padding(10.dp)) {
                     Text(article.title, fontWeight = FontWeight.Bold)
-                    Text(article.description, color = Color(0xFF555555))
+                    Text(article.desc, color = Color(0xFF555555))
                 }
             }
             Box(
