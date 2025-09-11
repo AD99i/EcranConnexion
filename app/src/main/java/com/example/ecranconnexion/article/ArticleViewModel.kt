@@ -9,18 +9,29 @@ class ArticleViewModel : ViewModel() {
 
     var articles = MutableStateFlow<List<Article>>(mutableListOf())
 
+    var articleDetail = MutableStateFlow<Article?>(null)
+
     //fonction pour ajouter un article
     fun addArticle(article: Article) {
         articles.value = articles.value + article
     }
 
-    fun callArticleApi(){
+    fun callArticlesApi(){
 
         //lancement de la tache asynchrone
         viewModelScope.launch {
             //appel API
             //on ecrase la liste des articles par celles recuperees via l'API
-            articles.value = ArticleService.ArticleServiceApi.articleService.getArticles()
+            val response = ArticleService.ArticleServiceApi.articleService.getArticles()
+            articles.value = response.data!!
+
+        }
+    }
+
+    fun callArticleDetailApi(id: String){
+        viewModelScope.launch {
+            val response = ArticleService.ArticleServiceApi.articleService.getArticleDetail(id)
+            articleDetail.value = response.data
         }
     }
 

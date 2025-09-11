@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
-
 
     <application
         android:allowBackup="true"
@@ -14,19 +13,18 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.EcranConnexion">
+        android:theme="@style/Theme.EcranConnexion"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".article.ArticleDetailActivity"
             android:exported="false"
-            android:label="@string/title_activity_main"
-            android:theme="@style/Theme.EcranConnexion"/>
-
+            android:label="@string/title_activity_article_detail"
+            android:theme="@style/Theme.EcranConnexion" />
         <activity
-            android:name=".article.ArticleList"
+            android:name=".article.ListArticleActivity"
             android:exported="true"
             android:label="@string/title_activity_article_list"
-            android:theme="@style/Theme.EcranConnexion" >
+            android:theme="@style/Theme.EcranConnexion">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,21 +32,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ForgotPassword"
+            android:name=".auth.ForgotPassword"
             android:exported="false"
             android:label="@string/title_activity_forgot_password"
             android:theme="@style/Theme.EcranConnexion" />
         <activity
-            android:name=".Inscription"
+            android:name=".auth.Inscription"
             android:exported="false"
             android:label="@string/title_activity_inscription"
             android:theme="@style/Theme.EcranConnexion" />
         <activity
-            android:name=".Connexion"
+            android:name=".auth.Connexion"
             android:exported="false"
             android:label="@string/title_activity_connexion"
-            android:theme="@style/Theme.EcranConnexion"/>
-
+            android:theme="@style/Theme.EcranConnexion" />
     </application>
 
 </manifest>

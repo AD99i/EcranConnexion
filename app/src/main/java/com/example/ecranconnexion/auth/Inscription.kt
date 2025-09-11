@@ -1,6 +1,5 @@
-package com.example.ecranconnexion
+package com.example.ecranconnexion.auth
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +17,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ecranconnexion.R
 import com.example.ecranconnexion.common.AppContextHelper
 import com.example.ecranconnexion.ui.theme.CustomButton
 import com.example.ecranconnexion.ui.theme.CustomTextField

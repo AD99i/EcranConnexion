@@ -1,6 +1,5 @@
-package com.example.ecranconnexion
+package com.example.ecranconnexion.auth
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -16,6 +15,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.ecranconnexion.R
+import com.example.ecranconnexion.article.ListArticleActivity
+import com.example.ecranconnexion.common.AppContextHelper
 import com.example.ecranconnexion.ui.theme.CustomButton
 import com.example.ecranconnexion.ui.theme.CustomTextField
 import com.example.ecranconnexion.ui.theme.EniLogo
@@ -23,18 +25,21 @@ import com.example.ecranconnexion.ui.theme.TemplatePage
 import com.example.ecranconnexion.ui.theme.TitlePage
 import com.example.ecranconnexion.ui.theme.WrapPadding
 
-class ForgotPassword : ComponentActivity() {
+class Connexion : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            PasswordPage()
+            MainPage()
+
         }
     }
 }
 
+
+
 @Composable
-fun PasswordPage() {
+fun MainPage() {
 
     //recuperer le contexte actuel de l'appli (important pour changer de page)
     val context = LocalContext.current
@@ -43,27 +48,37 @@ fun PasswordPage() {
                 Column (
                     horizontalAlignment = Alignment.CenterHorizontally,
                     modifier = Modifier
-                        .fillMaxSize()
-                        .padding(40.dp)
-                        .padding(top = 10.dp)){
+                    .fillMaxSize()
+                    .padding(50.dp)
+                    .padding(top = 50.dp)){
                     EniLogo()
-                    Spacer(modifier = Modifier.height(180.dp))
-                    TitlePage("Password Recovery")
-                    Spacer(modifier = Modifier.height(60.dp))
+                    Spacer(modifier = Modifier.height(50.dp))
+                    TitlePage("Login")
+                    Spacer(modifier = Modifier.height(50.dp))
                     WrapPadding { CustomTextField("Email") }
-                    WrapPadding { CustomButton (label = "Send Reset Link", onClick = {
+                    WrapPadding { CustomTextField("Password") }
+                    WrapPadding { CustomButton(label = "Log In", onClick = {
                         //Le code pour changer de page
-                        val intent = Intent(context, Connexion::class.java)
-                        context.startActivity(intent)
-                    })
-                    }
+                        AppContextHelper.openActivity(context, ListArticleActivity::class)
+                    }) }
+                    Spacer(modifier = Modifier.weight(1f))
+                    WrapPadding { CustomButton(label = "Forgot Password ?", onClick = {
+                        //Le code pour changer de page
+                        AppContextHelper.openActivity(context, ForgotPassword::class)
+                    }) }
+                    WrapPadding { CustomButton(label = "Sign in", onClick = {
+                        //Le code pour changer de page
+                        AppContextHelper.openActivity(context, Inscription::class)
+                    }) }
                 }
             }
+
         }
+
 
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview2() {
-        PasswordPage()
+fun GreetingPreview() {
+    MainPage()
 }

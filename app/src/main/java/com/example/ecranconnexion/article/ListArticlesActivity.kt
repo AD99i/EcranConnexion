@@ -26,7 +26,7 @@ import com.example.ecranconnexion.ui.theme.TemplatePage
 import com.example.ecranconnexion.ui.theme.TitlePage
 import com.example.ecranconnexion.ui.theme.WrapPadding
 
-class ArticleList : ComponentActivity() {
+class ListArticleActivity : ComponentActivity() {
 
     lateinit var viewModel: ArticleViewModel
 
@@ -35,13 +35,13 @@ class ArticleList : ComponentActivity() {
         enableEdgeToEdge()
         viewModel = ArticleViewModel()
         setContent {
-            ArticlesPage(viewModel)
+            ListArticlePage(viewModel)
         }
     }
 }
 
 @Composable
-fun ArticlesPage(viewModel: ArticleViewModel) {
+fun ListArticlePage(viewModel: ArticleViewModel) {
 
     // ecouter les changments de la liste des articles
 
@@ -54,16 +54,14 @@ fun ArticlesPage(viewModel: ArticleViewModel) {
                 .padding(50.dp)
                 .padding(top = 50.dp)
         ) {
-            Spacer(modifier = Modifier.height(140.dp))
+            Spacer(modifier = Modifier.height(90.dp))
             TitlePage("Articles")
-            Spacer(modifier = Modifier.height(40.dp))
-            CustomButton(label = "Load Aricles", onClick = {
-                viewModel.callArticleApi()
+            Spacer(modifier = Modifier.height(30.dp))
+            CustomButton(label = "Load Articles", onClick = {
+                viewModel.callArticlesApi()
             })
-            Spacer(modifier = Modifier.height(40.dp))
+            Spacer(modifier = Modifier.height(30.dp))
             ArticleListView(viewModel)
-            Spacer(modifier = Modifier.height(10.dp))
-
         }
     }
 }
@@ -82,6 +80,6 @@ fun ArticleListView(viewModel: ArticleViewModel) {
 @SuppressLint("ViewModelConstructorInComposable")
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview3() {
-    ArticlesPage(ArticleViewModel())
+fun ListArticlePreview() {
+    ListArticlePage(ArticleViewModel())
 }

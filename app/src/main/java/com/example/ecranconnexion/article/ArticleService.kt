@@ -6,12 +6,15 @@ import retrofit2.http.GET
 interface ArticleService {
 
     @GET("articles")
-    suspend fun getArticles() : List<Article>
+    suspend fun getArticles() : ArticleResponse<List<Article>>
+
+    @GET("article/{id}")
+    suspend fun getArticleDetail(id: String) : ArticleDetailResponse
 
     object ArticleServiceApi{
         //instancier une seul fois ArticleService a l'aide de l'utilitaire retrofit
         //il faut utiliser l'utilitaire RetrofitTools pour avoir le contexte de retrofit automatique
-        val articleService : ArticleService by lazy {
+        val articleService: ArticleService by lazy {
             retrofit.create(ArticleService::class.java)
         }
     }
