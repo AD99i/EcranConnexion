@@ -56,15 +56,8 @@ fun ArticlesPage(viewModel: ArticleViewModel) {
             Spacer(modifier = Modifier.height(140.dp))
             TitlePage("Articles")
             Spacer(modifier = Modifier.height(40.dp))
-            CustomButton(label = "Add Article", onClick = {
-                viewModel.addArticle(
-                    Article(
-                        "New Article",
-                        "New Article",
-                        "This is a new article added to the list.",
-                        "article_placeholder.png"
-                    )
-                )
+            CustomButton(label = "Load Aricles", onClick = {
+                viewModel.callArticleApi()
             })
             Spacer(modifier = Modifier.height(40.dp))
             ArticleListView(viewModel)
