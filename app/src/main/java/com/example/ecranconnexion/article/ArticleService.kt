@@ -5,7 +5,7 @@ import retrofit2.http.GET
 
 interface ArticleService {
 
-    @GET("android-articles.json")
+    @GET("articles")
     suspend fun getArticles() : List<Article>
 
     object ArticleServiceApi{
