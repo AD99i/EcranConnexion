@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.ecranconnexion.article.Article
 import com.example.ecranconnexion.R
+import com.example.ecranconnexion.common.AlertDialog
 
 
 @Composable
@@ -47,6 +48,7 @@ fun TemplatePage(@DrawableRes backgroundId: Int= R.drawable.mobile_bg_01, conten
             Box(modifier = Modifier.padding(innerPadding)) {
                 BackgroundImage(backgroundId)
                 content()
+                AlertDialog()
             }
         }
     }
